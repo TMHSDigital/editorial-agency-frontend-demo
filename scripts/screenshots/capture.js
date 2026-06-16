@@ -20,7 +20,7 @@ const fs = require('fs');
 const path = require('path');
 const puppeteer = require('puppeteer-core');
 
-const SITE_URL = process.env.SITE_URL || 'https://tmhsdigital.github.io/demo-site-3/';
+const SITE_URL = process.env.SITE_URL || 'https://tmhsdigital.github.io/editorial-agency-frontend-demo/';
 const OUT_DIR = process.env.OUT_DIR || path.resolve(__dirname, '../../docs/screenshots');
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

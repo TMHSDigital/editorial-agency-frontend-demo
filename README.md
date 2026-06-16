@@ -8,15 +8,15 @@ No framework, no build step. The markup, styles, and scripts are self-contained,
 
 <br />
 
-[![View Live Site](https://img.shields.io/badge/View_Live_Site-B6451F?style=for-the-badge&logo=githubpages&logoColor=white)](https://tmhsdigital.github.io/demo-site-3/)
+[![View Live Site](https://img.shields.io/badge/View_Live_Site-B6451F?style=for-the-badge&logo=githubpages&logoColor=white)](https://tmhsdigital.github.io/editorial-agency-frontend-demo/)
 
 <br />
 
-[![Deploy to GitHub Pages](https://github.com/TMHSDigital/demo-site-3/actions/workflows/deploy.yml/badge.svg)](https://github.com/TMHSDigital/demo-site-3/actions/workflows/deploy.yml)
-[![License: MIT](https://img.shields.io/github/license/TMHSDigital/demo-site-3?color=green)](LICENSE)
-![Last commit](https://img.shields.io/github/last-commit/TMHSDigital/demo-site-3)
-![Repo size](https://img.shields.io/github/repo-size/TMHSDigital/demo-site-3)
-![Top language](https://img.shields.io/github/languages/top/TMHSDigital/demo-site-3)
+[![Deploy to GitHub Pages](https://github.com/TMHSDigital/editorial-agency-frontend-demo/actions/workflows/deploy.yml/badge.svg)](https://github.com/TMHSDigital/editorial-agency-frontend-demo/actions/workflows/deploy.yml)
+[![License: MIT](https://img.shields.io/github/license/TMHSDigital/editorial-agency-frontend-demo?color=green)](LICENSE)
+![Last commit](https://img.shields.io/github/last-commit/TMHSDigital/editorial-agency-frontend-demo)
+![Repo size](https://img.shields.io/github/repo-size/TMHSDigital/editorial-agency-frontend-demo)
+![Top language](https://img.shields.io/github/languages/top/TMHSDigital/editorial-agency-frontend-demo)
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
@@ -28,6 +28,9 @@ No framework, no build step. The markup, styles, and scripts are self-contained,
 
 > [!NOTE]
 > TMHS Digital is a fictional studio created for this demo. The services, metrics, testimonials, and partner names are placeholders and do not represent real claims.
+
+> [!TIP]
+> This is one of a series of single-file frontend demos by [TMHSDigital](https://github.com/TMHSDigital). For a different brief — a conversion-focused B2B SaaS landing page — see the companion demo [**syncflow-frontend-demo**](https://github.com/TMHSDigital/syncflow-frontend-demo).
 
 ## Overview
 
@@ -93,8 +96,8 @@ The CSS uses custom properties for theming, CSS grid for the asymmetric layouts,
 No dependencies or build step are required.
 
 ```bash
-git clone https://github.com/TMHSDigital/demo-site-3.git
-cd demo-site-3
+git clone https://github.com/TMHSDigital/editorial-agency-frontend-demo.git
+cd editorial-agency-frontend-demo
 ```
 
 Open `index.html` directly, or serve it over HTTP to match production behavior:
@@ -146,7 +149,7 @@ Released under the [MIT License](LICENSE). Fonts are licensed under the [SIL Ope
 <div align="center">
 <br />
 
-[**Live site**](https://tmhsdigital.github.io/demo-site-3/) · [**Report an issue**](https://github.com/TMHSDigital/demo-site-3/issues) · [**MIT License**](LICENSE)
+[**Live site**](https://tmhsdigital.github.io/editorial-agency-frontend-demo/) · [**Report an issue**](https://github.com/TMHSDigital/editorial-agency-frontend-demo/issues) · [**Companion demo**](https://github.com/TMHSDigital/syncflow-frontend-demo) · [**MIT License**](LICENSE)
 
 <sub>Built by <a href="https://github.com/TMHSDigital">TMHSDigital</a> · <a href="#tmhs-digital">Back to top ↑</a></sub>
 
