@@ -5,6 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>TMHS Digital — Creative Engineering &amp; Strategic Projects</title>
 <meta name="description" content="TMHS Digital is a high-end creative engineering and strategic projects agency. We build structural, durable digital work for brands that refuse the generic." />
+<meta name="author" content="TMHS Digital" />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#d9d5cc" />
+<link rel="canonical" href="https://tmhsdigital.github.io/editorial-agency-frontend-demo/" />
+
+<!-- inline SVG favicon — keeps the page self-contained -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20fill='%23d9d5cc'/%3E%3Crect%20x='7'%20y='7'%20width='18'%20height='18'%20fill='%23f23c00'/%3E%3C/svg%3E" />
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="TMHS Digital" />
+<meta property="og:title" content="TMHS Digital — Creative Engineering &amp; Strategic Projects" />
+<meta property="og:description" content="A high-end creative engineering and strategic projects agency. Structural, durable digital work for brands that refuse the generic." />
+<meta property="og:url" content="https://tmhsdigital.github.io/editorial-agency-frontend-demo/" />
+<meta property="og:image" content="https://tmhsdigital.github.io/editorial-agency-frontend-demo/docs/screenshots/hero.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="TMHS Digital — Creative Engineering &amp; Strategic Projects" />
+<meta name="twitter:description" content="A high-end creative engineering and strategic projects agency. Structural, durable digital work for brands that refuse the generic." />
+<meta name="twitter:image" content="https://tmhsdigital.github.io/editorial-agency-frontend-demo/docs/screenshots/hero.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -468,10 +487,41 @@
   @media (max-width: 460px) {
     .foot { grid-template-columns: 1fr; }
   }
+
+  /* ---------- skip link (accessibility) ------------------------ */
+  .skip {
+    position: absolute;
+    left: -9999px;
+    top: 0.6rem;
+    z-index: 100;
+    background: var(--ink);
+    color: var(--cement);
+    padding: 0.7rem 1rem;
+    border: 1px solid var(--accent);
+  }
+  .skip:focus { left: 0.6rem; }
+
+  :target { scroll-margin-top: 70px; }
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "TMHS Digital",
+  "description": "A high-end creative engineering and strategic projects agency.",
+  "url": "https://tmhsdigital.github.io/editorial-agency-frontend-demo/",
+  "email": "studio@tmhs.digital",
+  "foundingDate": "2014",
+  "knowsAbout": ["Brand Systems", "Editorial Web", "Commerce", "Product Engineering", "Strategy", "Type & Motion"],
+  "areaServed": "Worldwide"
+}
+</script>
 </head>
 
 <body id="top">
+
+  <a class="skip mono" href="#main">Skip to content</a>
 
   <!-- ===== UTILITY BAR ===== -->
   <header class="util">
@@ -500,7 +550,7 @@
       </div>
     </aside>
 
-    <main class="canvas">
+    <main class="canvas" id="main" tabindex="-1">
 
       <!-- ===== HERO ===== -->
       <section class="block hero" aria-label="Introduction">

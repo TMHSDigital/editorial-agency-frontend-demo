@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tmhsdigital.github.io/editorial-agency-frontend-demo/sitemap.xml

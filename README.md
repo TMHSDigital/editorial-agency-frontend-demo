@@ -133,7 +133,10 @@ Updating `--accent` re-themes every interactive touchpoint at once. Replace the 
 ```
 .
 ├── index.html                   # complete site (HTML, CSS, JS)
+├── 404.html                     # branded not-found page
 ├── image_5bce99.png             # hero asset
+├── robots.txt                   # crawler directives
+├── sitemap.xml                  # search-engine sitemap
 ├── docs/screenshots/            # README images
 ├── scripts/screenshots/         # headless-Chrome capture tooling
 ├── .github/workflows/deploy.yml # GitHub Pages deployment

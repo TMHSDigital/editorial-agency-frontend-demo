@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>404 — TMHS Digital</title>
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#d9d5cc" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20fill='%23d9d5cc'/%3E%3Crect%20x='7'%20y='7'%20width='18'%20height='18'%20fill='%23f23c00'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cement: #d9d5cc; --ink: #14130f; --ink-soft: #4c4a42;
+    --accent: #f23c00; --line: #b1aa9c;
+    --ease: cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    min-height: 100vh;
+    background: var(--cement);
+    color: var(--ink);
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+  ::selection { background: var(--accent); color: var(--cement); }
+  a { color: inherit; text-decoration: none; }
+
+  .mono { text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.64rem; line-height: 1.7; }
+
+  header, footer {
+    padding: 1rem clamp(1.25rem, 4vw, 4.5rem);
+    display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    color: var(--ink-soft);
+  }
+  header { border-bottom: 1px solid var(--line); }
+  footer { border-top: 1px solid var(--line); }
+  .brand { color: var(--ink); display: inline-flex; align-items: center; gap: 0.6rem; letter-spacing: 0.22em; font-size: 0.78rem; }
+  .brand .mark { width: 11px; height: 11px; background: var(--accent); }
+
+  main { padding: clamp(2.5rem, 8vw, 6rem) clamp(1.25rem, 4vw, 4.5rem); align-self: center; }
+  .code {
+    font-family: "Syne", sans-serif; font-weight: 800;
+    font-size: clamp(5rem, 26vw, 18rem); line-height: 0.82;
+    letter-spacing: -0.03em; margin-bottom: 1.5rem;
+  }
+  .code span { color: var(--accent); }
+  h1 {
+    font-family: "Syne", sans-serif; font-weight: 600;
+    font-size: clamp(1.3rem, 3.4vw, 2.2rem); line-height: 1.1;
+    letter-spacing: -0.01em; margin-bottom: 1.6rem; max-width: 22ch;
+  }
+  .home {
+    position: relative; display: inline-flex; align-items: center; gap: 1rem;
+    border: 1px solid var(--ink); padding: 0.95rem 1.5rem; overflow: hidden;
+    isolation: isolate; font-size: 0.7rem; transition: all 0.4s var(--ease);
+  }
+  .home::before {
+    content: ""; position: absolute; inset: 0; background: var(--accent);
+    z-index: -1; transform: translateY(101%); transition: transform 0.4s var(--ease);
+  }
+  .home:hover { color: var(--cement); border-color: var(--accent); }
+  .home:hover::before { transform: translateY(0); }
+  .home .arr { transition: transform 0.4s var(--ease); }
+  .home:hover .arr { transform: translateX(6px); }
+</style>
+</head>
+<body>
+  <header class="mono">
+    <a class="brand" href="/editorial-agency-frontend-demo/"><span class="mark" aria-hidden="true"></span> TMHS&nbsp;DIGITAL</a>
+    <span>Error / Not Found</span>
+  </header>
+
+  <main>
+    <div class="code">4<span>0</span>4</div>
+    <h1>This page was never built — or has since been torn down.</h1>
+    <a class="home mono" href="/editorial-agency-frontend-demo/">
+      <span>Return to the studio</span><span class="arr">→</span>
+    </a>
+  </main>
+
+  <footer class="mono">
+    <span>© MMXXVI TMHS Digital</span>
+    <span>51.5072° N, 0.1276° W</span>
+  </footer>
+</body>
+</html>
