@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TMHS Digital — Boutique Design &amp; Development</title>
+<meta name="description" content="TMHS Digital is a boutique design and development studio building considered, durable digital objects for brands that refuse the generic." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<style>
+  /* ============================================================
+     TMHS DIGITAL — single-file editorial / brutalist-minimal site
+     Palette : 60 chalky concrete · 30 deep charcoal ink · 10 rust
+     Type    : Cormorant Garamond (serif) + JetBrains Mono (label)
+     ============================================================ */
+
+  :root {
+    --concrete:   #e7e3da;   /* dominant 60% — chalky off-white */
+    --concrete-2: #ddd8cc;   /* secondary panel tone            */
+    --ink:        #1c1b18;   /* 30% — near-black charcoal        */
+    --ink-soft:   #44423c;
+    --rust:       #b6451f;   /* 10% — industrial cadmium rust    */
+    --line:       #b8b2a4;   /* 1px structural border            */
+    --line-dark:  #34322c;
+
+    /* the "expensive car door" easing curves */
+    --thunk:  cubic-bezier(0.16, 1, 0.3, 1);
+    --weight: cubic-bezier(0.77, 0, 0.175, 1);
+
+    --gutter: clamp(1.25rem, 4vw, 4rem);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+
+  body {
+    background: var(--concrete);
+    color: var(--ink);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 18px;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: var(--rust); color: var(--concrete); }
+
+  .mono {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.66rem;
+    line-height: 1.6;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ---------- structural shell ---------------------------------- */
+  .frame {
+    max-width: 1500px;
+    margin: 0 auto;
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+  }
+
+  .pad { padding-left: var(--gutter); padding-right: var(--gutter); }
+
+  /* ---------- top bar ------------------------------------------- */
+  header.bar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem var(--gutter);
+    background: color-mix(in srgb, var(--concrete) 88%, transparent);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .wordmark {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.55rem;
+  }
+  .wordmark .dot { color: var(--rust); }
+
+  nav.primary ul {
+    list-style: none;
+    display: flex;
+    gap: clamp(1rem, 2.5vw, 2.6rem);
+    align-items: center;
+  }
+  nav.primary a {
+    position: relative;
+    padding-bottom: 3px;
+  }
+  nav.primary a::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 100%; height: 1px;
+    background: var(--rust);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.6s var(--thunk);
+  }
+  nav.primary a:hover { color: var(--rust); }
+  nav.primary a:hover::after { transform: scaleX(1); transform-origin: left; }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: 1px solid var(--line-dark);
+    color: var(--ink);
+    font-family: "JetBrains Mono", monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.62rem;
+    padding: 0.55rem 0.9rem;
+    cursor: pointer;
+  }
+
+  /* ---------- HERO ---------------------------------------------- */
+  .hero {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero__type {
+    padding: clamp(2.5rem, 7vw, 6.5rem) var(--gutter) clamp(2rem, 4vw, 3.5rem);
+    border-right: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .eyebrow {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    color: var(--ink-soft);
+    margin-bottom: clamp(2rem, 6vw, 4rem);
+  }
+
+  .hero h1 {
+    font-weight: 500;
+    font-size: clamp(3.2rem, 11vw, 9.5rem);
+    line-height: 0.92;
+    letter-spacing: -0.015em;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--rust);
+    font-weight: 400;
+  }
+  .hero h1 .indent { display: block; padding-left: clamp(0rem, 12vw, 9rem); }
+
+  .hero__foot {
+    margin-top: clamp(2.4rem, 6vw, 4.2rem);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: end;
+  }
+  .hero__foot p {
+    max-width: 34ch;
+    font-size: 1.18rem;
+    line-height: 1.45;
+    color: var(--ink-soft);
+  }
+
+  /* vertical sub-text rail */
+  .hero__media {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+  .vrail {
+    border-right: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+  .vrail span {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    color: var(--ink-soft);
+    letter-spacing: 0.42em;
+  }
+  .hero__figure {
+    position: relative;
+    padding: clamp(1.5rem, 3vw, 2.4rem);
+  }
+  .hero__figure figure {
+    position: relative;
+    height: 100%;
+    min-height: 320px;
+    border: 1px solid var(--line-dark);
+    overflow: hidden;
+  }
+  .hero__figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(1) contrast(1.04);
+    transition: filter 0.9s var(--thunk), transform 1.1s var(--thunk);
+  }
+  .hero__figure figure:hover img {
+    filter: grayscale(0) contrast(1);
+    transform: scale(1.03);
+  }
+  .hero__figure figcaption {
+    position: absolute;
+    left: 0; bottom: 0;
+    background: var(--ink);
+    color: var(--concrete);
+    padding: 0.5rem 0.8rem;
+    display: flex;
+    gap: 0.6rem;
+  }
+  .hero__figure figcaption .num { color: var(--rust); }
+
+  /* placeholder shown until real asset loads */
+  .ph {
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(45deg, var(--concrete-2) 0 14px, var(--concrete) 14px 28px);
+    display: flex; align-items: flex-end; padding: 1rem;
+    color: var(--ink-soft);
+    z-index: -1;
+  }
+
+  /* ---------- marquee ribbon ------------------------------------ */
+  .ribbon {
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+    background: var(--ink);
+    color: var(--concrete);
+  }
+  .ribbon__track {
+    display: flex;
+    gap: 3rem;
+    white-space: nowrap;
+    padding: 0.7rem 0;
+    width: max-content;
+    animation: drift 38s linear infinite;
+  }
+  .ribbon__track span { display: inline-flex; gap: 3rem; }
+  .ribbon b { color: var(--rust); font-weight: 400; }
+  @keyframes drift { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) {
+    .ribbon__track { animation: none; }
+  }
+
+  /* ---------- section scaffolding ------------------------------- */
+  section { border-bottom: 1px solid var(--line); }
+
+  .sec-head {
+    display: grid;
+    grid-template-columns: minmax(0, 18rem) 1fr;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    padding: clamp(2.4rem, 6vw, 4.5rem) var(--gutter) clamp(1.6rem, 3vw, 2.6rem);
+  }
+  .sec-head .idx { color: var(--rust); }
+  .sec-head h2 {
+    font-weight: 500;
+    font-size: clamp(2rem, 5.5vw, 4rem);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    max-width: 18ch;
+  }
+  .sec-head h2 em { font-style: italic; color: var(--ink-soft); }
+
+  /* ---------- SERVICE MATRIX ------------------------------------ */
+  .matrix {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--line);
+  }
+  .cell {
+    position: relative;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: clamp(1.6rem, 3vw, 2.6rem);
+    min-height: clamp(230px, 24vw, 300px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    isolation: isolate;
+    transition: background 0.6s var(--thunk), color 0.6s var(--thunk);
+  }
+  .cell::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: var(--ink);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.55s var(--weight);
+    z-index: -1;
+  }
+  .cell:hover { color: var(--concrete); }
+  .cell:hover::before { transform: scaleY(1); }
+  .cell:hover .cell__no { color: var(--rust); }
+  .cell:hover .cell__arrow { transform: translate(4px, -4px); color: var(--rust); }
+
+  .cell__top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .cell__no { color: var(--ink-soft); transition: color 0.5s var(--thunk); }
+  .cell__arrow {
+    font-size: 1.3rem;
+    line-height: 1;
+    transition: transform 0.5s var(--thunk), color 0.5s var(--thunk);
+  }
+  .cell h3 {
+    font-weight: 500;
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    line-height: 1.05;
+    margin-bottom: 0.6rem;
+  }
+  .cell p {
+    color: inherit;
+    opacity: 0.78;
+    max-width: 32ch;
+    font-size: 1.04rem;
+  }
+  /* let the bottom row not double-border on the right edge */
+  .matrix .cell:nth-child(3n) { border-right: none; }
+
+  /* ---------- PROOF / editorial testimonials -------------------- */
+  .proof { padding-bottom: clamp(2rem, 5vw, 4rem); }
+  .quote-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: clamp(2rem, 5vw, 4.5rem) clamp(1rem, 3vw, 2.5rem);
+    padding: clamp(1rem, 3vw, 2.5rem) var(--gutter) 0;
+  }
+  figure.quote { margin: 0; }
+  figure.quote blockquote {
+    font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+    line-height: 1.22;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+  }
+  figure.quote blockquote::first-letter { color: var(--rust); }
+  figure.quote .big {
+    font-style: italic;
+    color: var(--rust);
+  }
+  figure.quote figcaption {
+    margin-top: 1.2rem;
+    display: flex;
+    gap: 0.8rem;
+    align-items: baseline;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--line);
+    padding-top: 0.8rem;
+  }
+
+  /* deliberate asymmetry across the 12-col field */
+  .q1 { grid-column: 1 / span 7; }
+  .q2 { grid-column: 9 / span 4; align-self: end; }
+  .q3 { grid-column: 2 / span 5; align-self: center; }
+  .q4 { grid-column: 8 / span 5; }
+
+  /* raw numbers band */
+  .figures {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--line);
+    margin-top: clamp(2.5rem, 6vw, 4.5rem);
+  }
+  .figures div {
+    padding: clamp(1.8rem, 3vw, 2.6rem) var(--gutter);
+    border-right: 1px solid var(--line);
+  }
+  .figures div:last-child { border-right: none; }
+  .figures .n {
+    display: block;
+    font-size: clamp(2.6rem, 5vw, 4.4rem);
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+  .figures .n sup { font-size: 0.4em; color: var(--rust); vertical-align: super; }
+  .figures .k { display: block; margin-top: 0.9rem; color: var(--ink-soft); }
+
+  /* ---------- INDEX / process list ------------------------------ */
+  .ledger { border-top: 1px solid var(--line); }
+  .row {
+    display: grid;
+    grid-template-columns: 5rem minmax(0,1fr) minmax(0,1.3fr) 4rem;
+    gap: clamp(1rem, 3vw, 2.5rem);
+    align-items: center;
+    padding: clamp(1.4rem, 2.6vw, 2rem) var(--gutter);
+    border-bottom: 1px solid var(--line);
+    transition: padding-left 0.6s var(--thunk), background 0.6s var(--thunk);
+  }
+  .row:last-child { border-bottom: none; }
+  .row:hover { padding-left: calc(var(--gutter) + 1.2rem); background: var(--concrete-2); }
+  .row:hover .row__t { color: var(--rust); }
+  .row .row__no { color: var(--ink-soft); }
+  .row__t { font-size: clamp(1.4rem, 2.4vw, 2rem); font-weight: 500; }
+  .row__d { color: var(--ink-soft); max-width: 46ch; }
+  .row__tick { text-align: right; color: var(--ink-soft); transition: color 0.5s var(--thunk); }
+  .row:hover .row__tick { color: var(--rust); }
+
+  /* ---------- CONTACT / CTA ------------------------------------- */
+  .invite {
+    background: var(--ink);
+    color: var(--concrete);
+  }
+  .invite .inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: end;
+    padding: clamp(3rem, 8vw, 6.5rem) var(--gutter) clamp(2.4rem, 5vw, 4rem);
+  }
+  .invite h2 {
+    font-weight: 500;
+    font-size: clamp(2.6rem, 8vw, 6.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.015em;
+  }
+  .invite h2 em { font-style: italic; color: var(--rust); }
+  .invite .meta { color: #b9b3a5; }
+  .invite .meta a { display: inline-block; }
+
+  .applink {
+    position: relative;
+    border: 1px solid #4a473f;
+    padding: 1.1rem 1.6rem;
+    display: inline-flex;
+    gap: 1.4rem;
+    align-items: center;
+    overflow: hidden;
+    isolation: isolate;
+    white-space: nowrap;
+  }
+  .applink::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: var(--rust);
+    transform: translateY(101%);
+    transition: transform 0.55s var(--weight);
+    z-index: -1;
+  }
+  .applink:hover::before { transform: translateY(0); }
+  .applink:hover { border-color: var(--rust); color: var(--concrete); }
+  .applink .arrow { transition: transform 0.5s var(--thunk); }
+  .applink:hover .arrow { transform: translateX(6px); }
+
+  /* ---------- footer -------------------------------------------- */
+  footer.foot {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    padding: clamp(2rem, 4vw, 3rem) var(--gutter);
+    color: var(--ink-soft);
+    align-items: start;
+  }
+  footer.foot .col h4 { color: var(--ink); margin-bottom: 0.8rem; }
+  footer.foot ul { list-style: none; }
+  footer.foot li { margin-bottom: 0.4rem; }
+  footer.foot a:hover { color: var(--rust); }
+  footer.foot .colophon { grid-column: 1 / -1; border-top: 1px solid var(--line); padding-top: 1.4rem; margin-top: 1rem; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+
+  /* ============================================================
+     RESPONSIVE — stack with intent, keep text left-aligned
+     ============================================================ */
+  @media (max-width: 1080px) {
+    .matrix { grid-template-columns: repeat(2, 1fr); }
+    .matrix .cell:nth-child(3n) { border-right: 1px solid var(--line); }
+    .matrix .cell:nth-child(2n) { border-right: none; }
+  }
+
+  @media (max-width: 860px) {
+    body { font-size: 17px; }
+
+    nav.primary { display: none; }
+    nav.primary.open {
+      display: block;
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      background: var(--concrete);
+      border-bottom: 1px solid var(--line);
+    }
+    nav.primary.open ul {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+    }
+    nav.primary.open li { width: 100%; border-top: 1px solid var(--line); }
+    nav.primary.open a { display: block; padding: 1.1rem var(--gutter); width: 100%; }
+    .menu-toggle { display: inline-block; }
+    header.bar { position: relative; }
+
+    .hero { grid-template-columns: 1fr; }
+    .hero__type { border-right: none; border-bottom: 1px solid var(--line); }
+    .hero h1 .indent { padding-left: 0; }
+    .hero__foot { grid-template-columns: 1fr; }
+    .hero__media { grid-template-columns: auto 1fr; min-height: 60vw; }
+
+    .sec-head { grid-template-columns: 1fr; }
+
+    /* quotes: linear, fully readable, left aligned */
+    .quote-grid { grid-template-columns: 1fr; }
+    .q1, .q2, .q3, .q4 { grid-column: 1 / -1; align-self: auto; }
+    figure.quote { padding-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
+    figure.quote:last-child { border-bottom: none; }
+
+    .figures { grid-template-columns: repeat(2, 1fr); }
+    .figures div:nth-child(2) { border-right: none; }
+    .figures div:nth-child(1), .figures div:nth-child(2) { border-bottom: 1px solid var(--line); }
+
+    .row {
+      grid-template-columns: 3rem 1fr;
+      grid-template-areas: "no title" ". desc";
+      row-gap: 0.5rem;
+    }
+    .row__no { grid-area: no; }
+    .row__t  { grid-area: title; }
+    .row__d  { grid-area: desc; }
+    .row__tick { display: none; }
+    .row:hover { padding-left: var(--gutter); } /* no shift jank on touch */
+
+    .invite .inner { grid-template-columns: 1fr; align-items: start; }
+    .applink { width: 100%; justify-content: space-between; }
+
+    footer.foot { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 460px) {
+    .matrix { grid-template-columns: 1fr; }
+    .matrix .cell, .matrix .cell:nth-child(3n) { border-right: none; }
+    .figures { grid-template-columns: 1fr; }
+    .figures div { border-right: none; border-bottom: 1px solid var(--line); }
+    .figures div:last-child { border-bottom: none; }
+    footer.foot { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+
+<body>
+<div class="frame">
+
+  <!-- ============== TOP BAR ============== -->
+  <header class="bar">
+    <a class="wordmark" href="#top" aria-label="TMHS Digital, home">
+      TMHS<span class="dot">●</span>DIGITAL
+    </a>
+    <nav class="primary mono" id="nav" aria-label="Primary">
+      <ul>
+        <li><a href="#work">Practice</a></li>
+        <li><a href="#proof">Proof</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#contact">Enquire</a></li>
+      </ul>
+    </nav>
+    <button class="menu-toggle mono" id="toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+  </header>
+
+  <!-- ============== HERO ============== -->
+  <section class="hero" id="top" aria-label="Introduction">
+    <div class="hero__type">
+      <div>
+        <div class="eyebrow mono">
+          <span>Boutique Design &amp; Development</span>
+          <span>Est. MMXIV — Worldwide</span>
+        </div>
+        <h1>
+          Build the<br />
+          <span class="indent"><em>unrepeat&shy;able.</em></span>
+        </h1>
+      </div>
+
+      <div class="hero__foot">
+        <p class="mono" style="text-transform:none; letter-spacing:0; line-height:1.7;">
+          (01) — A studio of three.<br />
+          (02) — Two projects a season.<br />
+          (03) — Zero templates.
+        </p>
+        <p>
+          We are a boutique design and development practice for brands that
+          would rather be remembered than recognised. Considered objects,
+          built to outlast the trend cycle.
+        </p>
+      </div>
+    </div>
+
+    <div class="hero__media" aria-hidden="false">
+      <div class="vrail mono"><span>TMHS — Selected Field Work / 2026</span></div>
+      <div class="hero__figure">
+        <figure>
+          <div class="ph mono">image_5bce99.png</div>
+          <img src="image_5bce99.png" alt="Selected studio field work — architectural digital composition by TMHS Digital." loading="eager" />
+          <figcaption class="mono"><span class="num">№ 001</span><span>Atelier / Composition</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== RIBBON ============== -->
+  <div class="ribbon mono" aria-hidden="true">
+    <div class="ribbon__track">
+      <span>Brand Systems&nbsp;&nbsp;<b>/</b>&nbsp;&nbsp;Editorial Web&nbsp;&nbsp;<b>/</b>&nbsp;&nbsp;Commerce&nbsp;&nbsp;<b>/</b>&nbsp;&nbsp;Type &amp; Motion&nbsp;&nbsp;<b>/</b>&nbsp;&nbsp;Brand Systems&nbsp;&nbsp;<b>/</b>&nbsp;&nbsp;Editorial Web&nbsp;&nbsp;<b>/</b>&nbsp;&nbsp;Commerce&nbsp;&nbsp;<b>/</b>&nbsp;&nbsp;Type &amp; Motion&nbsp;&nbsp;<b>/</b>&nbsp;&nbsp;</span>
+      <span>Brand Systems&nbsp;&nbsp;<b>/</b>&nbsp;&nbsp;Editorial Web&nbsp;&nbsp;<b>/</b>&nbsp;&nbsp;Commerce&nbsp;&nbsp;<b>/</b>&nbsp;&nbsp;Type &amp; Motion&nbsp;&nbsp;<b>/</b>&nbsp;&nbsp;Brand Systems&nbsp;&nbsp;<b>/</b>&nbsp;&nbsp;Editorial Web&nbsp;&nbsp;<b>/</b>&nbsp;&nbsp;Commerce&nbsp;&nbsp;<b>/</b>&nbsp;&nbsp;Type &amp; Motion&nbsp;&nbsp;<b>/</b>&nbsp;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ============== SERVICE MATRIX ============== -->
+  <section id="work" aria-labelledby="work-h">
+    <div class="sec-head">
+      <p class="mono idx">[ 01 — Practice ]</p>
+      <h2 id="work-h">A narrow set of <em>disciplines,</em> pursued without compromise.</h2>
+    </div>
+    <div class="matrix">
+      <article class="cell">
+        <div class="cell__top"><span class="cell__no mono">01 / 06</span><span class="cell__arrow">↗</span></div>
+        <div><h3>Brand&nbsp;Systems</h3><p>Identity, voice and the rules that hold them — from monogram to motion grammar.</p></div>
+      </article>
+      <article class="cell">
+        <div class="cell__top"><span class="cell__no mono">02 / 06</span><span class="cell__arrow">↗</span></div>
+        <div><h3>Editorial&nbsp;Web</h3><p>Magazine-grade front-ends. Typographic systems engineered to be read, not skimmed.</p></div>
+      </article>
+      <article class="cell">
+        <div class="cell__top"><span class="cell__no mono">03 / 06</span><span class="cell__arrow">↗</span></div>
+        <div><h3>Commerce</h3><p>Considered storefronts where the checkout feels as deliberate as the product.</p></div>
+      </article>
+      <article class="cell">
+        <div class="cell__top"><span class="cell__no mono">04 / 06</span><span class="cell__arrow">↗</span></div>
+        <div><h3>Type &amp; Motion</h3><p>Custom lettering, kinetic detail and the small movements that signal craft.</p></div>
+      </article>
+      <article class="cell">
+        <div class="cell__top"><span class="cell__no mono">05 / 06</span><span class="cell__arrow">↗</span></div>
+        <div><h3>Art&nbsp;Direction</h3><p>The eye on the whole. We hold the line between every pixel and the idea.</p></div>
+      </article>
+      <article class="cell">
+        <div class="cell__top"><span class="cell__no mono">06 / 06</span><span class="cell__arrow">↗</span></div>
+        <div><h3>Engineering</h3><p>Hand-built, dependency-light code. Fast, durable, and a pleasure to inherit.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============== PROOF ============== -->
+  <section id="proof" class="proof" aria-labelledby="proof-h">
+    <div class="sec-head">
+      <p class="mono idx">[ 02 — Proof ]</p>
+      <h2 id="proof-h">The record, in <em>their words</em> and a few stubborn numbers.</h2>
+    </div>
+
+    <div class="quote-grid">
+      <figure class="quote q1">
+        <blockquote>They treated our launch like a <span class="big">building</span> — every joint considered, nothing decorative left unearned.</blockquote>
+        <figcaption class="mono"><span>—— Lena Okafor</span><span>Founder, MARROW Studio</span></figcaption>
+      </figure>
+
+      <figure class="quote q2">
+        <blockquote>Three people did what an agency of thirty couldn't: make us feel <span class="big">singular.</span></blockquote>
+        <figcaption class="mono"><span>—— D. Reyes</span><span>CMO, Halden &amp; Co.</span></figcaption>
+      </figure>
+
+      <figure class="quote q3">
+        <blockquote>It still loads instantly two years on. That is the whole review.</blockquote>
+        <figcaption class="mono"><span>—— P. Vainio</span><span>Director, Form Atelier</span></figcaption>
+      </figure>
+
+      <figure class="quote q4">
+        <blockquote>We came for a website and left with a <span class="big">language</span> for the company.</blockquote>
+        <figcaption class="mono"><span>—— S. Marchetti</span><span>CEO, Ostro Goods</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="figures">
+      <div><span class="n">14<sup>yrs</sup></span><span class="k mono">In continuous practice</span></div>
+      <div><span class="n">02</span><span class="k mono">Engagements per season</span></div>
+      <div><span class="n">100<sup>%</sup></span><span class="k mono">Hand-built, no templates</span></div>
+      <div><span class="n">41</span><span class="k mono">Partners, since two-thousand-fourteen</span></div>
+    </div>
+  </section>
+
+  <!-- ============== PROCESS LEDGER ============== -->
+  <section id="process" aria-labelledby="proc-h">
+    <div class="sec-head">
+      <p class="mono idx">[ 03 — Process ]</p>
+      <h2 id="proc-h">Four movements, <em>slowly.</em></h2>
+    </div>
+    <div class="ledger">
+      <div class="row">
+        <span class="row__no mono">01</span>
+        <span class="row__t">Listen</span>
+        <span class="row__d">A long first read of your business, your archive and the room you operate in.</span>
+        <span class="row__tick mono">wk 1–2</span>
+      </div>
+      <div class="row">
+        <span class="row__no mono">02</span>
+        <span class="row__t">Draw</span>
+        <span class="row__d">Direction on paper before pixels — type, grid and tone argued out in full.</span>
+        <span class="row__tick mono">wk 3–5</span>
+      </div>
+      <div class="row">
+        <span class="row__no mono">03</span>
+        <span class="row__t">Build</span>
+        <span class="row__d">Hand-coded, reviewed line by line. No frameworks you'll resent inheriting.</span>
+        <span class="row__tick mono">wk 6–9</span>
+      </div>
+      <div class="row">
+        <span class="row__no mono">04</span>
+        <span class="row__t">Hand&nbsp;Over</span>
+        <span class="row__d">Documentation, training and a system your team can carry on alone.</span>
+        <span class="row__tick mono">wk 10</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== CONTACT ============== -->
+  <section id="contact" class="invite" aria-labelledby="cta-h">
+    <div class="inner">
+      <div>
+        <p class="mono idx" style="color:var(--rust); margin-bottom:1.6rem;">[ 04 — Enquire ]</p>
+        <h2 id="cta-h">Let's make<br /><em>one good thing.</em></h2>
+        <p class="meta mono" style="margin-top:2rem; text-transform:none; letter-spacing:0;">
+          Booking two engagements for the Autumn season. Tell us what you are building.
+        </p>
+      </div>
+      <a class="applink mono" href="mailto:studio@tmhs.digital?subject=Project%20Enquiry">
+        <span>studio@tmhs.digital</span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="foot mono">
+    <div class="col">
+      <h4>TMHS Digital</h4>
+      <p style="text-transform:none; letter-spacing:0;">A boutique studio of three. Working worldwide, on local time.</p>
+    </div>
+    <div class="col">
+      <h4>Index</h4>
+      <ul>
+        <li><a href="#work">Practice</a></li>
+        <li><a href="#proof">Proof</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#contact">Enquire</a></li>
+      </ul>
+    </div>
+    <div class="col">
+      <h4>Channels</h4>
+      <ul>
+        <li><a href="mailto:studio@tmhs.digital">Email</a></li>
+        <li><a href="#top">Instagram</a></li>
+        <li><a href="#top">Are.na</a></li>
+        <li><a href="#top">LinkedIn</a></li>
+      </ul>
+    </div>
+    <div class="col">
+      <h4>Studio</h4>
+      <p style="text-transform:none; letter-spacing:0;">51.5072° N, 0.1276° W<br />By appointment only.</p>
+    </div>
+    <div class="colophon">
+      <span>© MMXXVI TMHS Digital — All rights reserved.</span>
+      <span>Set in Cormorant Garamond &amp; JetBrains Mono.</span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // minimal: collapse-nav toggle for mobile
+  (function () {
+    var t = document.getElementById('toggle');
+    var n = document.getElementById('nav');
+    if (!t || !n) return;
+    t.addEventListener('click', function () {
+      var open = n.classList.toggle('open');
+      t.setAttribute('aria-expanded', open ? 'true' : 'false');
+      t.textContent = open ? 'Close' : 'Menu';
+    });
+    n.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        n.classList.remove('open');
+        t.setAttribute('aria-expanded', 'false');
+        t.textContent = 'Menu';
+      }
+    });
+  })();
+</script>
+</body>
+</html>
